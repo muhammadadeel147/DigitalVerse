@@ -1,5 +1,8 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const technologies = [
   { name: "React", icon: "⚛️" },
@@ -17,19 +20,82 @@ const technologies = [
 ];
 
 export const TechStackSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.fromTo(
+        ".tech-header",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Staggered tech cards with 3D rotation
+      gsap.fromTo(
+        ".tech-card",
+        { 
+          opacity: 0, 
+          scale: 0.8, 
+          rotationY: 45,
+          transformPerspective: 1000,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotationY: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: {
+            each: 0.05,
+            from: "random",
+          },
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Partners fade in
+      gsap.fromTo(
+        ".partner-item",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".partners-section",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="section-padding relative overflow-hidden bg-muted/30">
-      <div className="container-custom relative z-10" ref={ref}>
+    <section ref={sectionRef} className="section-padding relative overflow-hidden bg-muted/30">
+      <div className="container-custom relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="tech-header text-center mb-16">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Technology
           </span>
@@ -41,18 +107,14 @@ export const TechStackSection = () => {
             We leverage industry-leading technologies to deliver scalable, 
             maintainable, and future-proof solutions.
           </p>
-        </motion.div>
+        </div>
 
         {/* Tech Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-          {technologies.map((tech, index) => (
-            <motion.div
+        <div ref={cardsRef} className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+          {technologies.map((tech) => (
+            <div
               key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="glass-card p-6 text-center hover:shadow-glow transition-all duration-300 cursor-pointer group"
+              className="tech-card glass-card p-6 text-center hover:shadow-glow transition-all duration-300 cursor-pointer group hover:scale-105 hover:-translate-y-1"
             >
               <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
                 {tech.icon}
@@ -60,17 +122,12 @@ export const TechStackSection = () => {
               <span className="text-sm font-medium text-foreground">
                 {tech.name}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Partners/Integrations */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
+        <div className="partners-section mt-16 text-center">
           <p className="text-muted-foreground mb-8">
             Trusted integrations with industry leaders
           </p>
@@ -78,13 +135,13 @@ export const TechStackSection = () => {
             {["Stripe", "Slack", "GitHub", "Jira", "Salesforce", "Datadog"].map((partner) => (
               <span
                 key={partner}
-                className="text-lg font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+                className="partner-item text-lg font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors"
               >
                 {partner}
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

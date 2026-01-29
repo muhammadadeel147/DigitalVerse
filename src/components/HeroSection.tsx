@@ -1,19 +1,82 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "./ui/button";
+import { Magnetic, Counter } from "./GsapAnimatedSection";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const HeroSection = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const orbsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate glow orbs continuously
+      gsap.to(".glow-orb-primary, .glow-orb-accent", {
+        scale: 1.1,
+        opacity: 0.5,
+        duration: 4,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 1,
+      });
+
+      // Parallax effect on scroll for orbs
+      gsap.to(".glow-orb-primary", {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.to(".glow-orb-accent", {
+        yPercent: 30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      // Grid parallax
+      gsap.to(".hero-grid", {
+        backgroundPosition: "0px 100px",
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div ref={orbsRef} className="absolute inset-0 overflow-hidden">
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <div className="hero-grid absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
         
         {/* Glow Orbs */}
-        <div className="glow-orb-primary w-[600px] h-[600px] -top-40 -left-40 animate-pulse-glow" />
-        <div className="glow-orb-accent w-[500px] h-[500px] top-1/2 -right-40 animate-pulse-glow" style={{ animationDelay: "-2s" }} />
-        <div className="glow-orb-primary w-[400px] h-[400px] bottom-0 left-1/3 animate-pulse-glow" style={{ animationDelay: "-4s" }} />
+        <div className="glow-orb-primary w-[600px] h-[600px] -top-40 -left-40" />
+        <div className="glow-orb-accent w-[500px] h-[500px] top-1/2 -right-40" />
+        <div className="glow-orb-primary w-[400px] h-[400px] bottom-0 left-1/3" />
       </div>
 
       <div className="container-custom relative z-10 px-4 md:px-8">
@@ -32,6 +95,7 @@ export const HeroSection = () => {
 
           {/* Headline */}
           <motion.h1
+            ref={headlineRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -61,17 +125,21 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button variant="hero" size="xl">
-              Start Building Free
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="heroOutline" size="xl">
-              <Play className="w-5 h-5" />
-              Watch Demo
-            </Button>
+            <Magnetic strength={0.2}>
+              <Button variant="hero" size="xl">
+                Start Building Free
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Magnetic>
+            <Magnetic strength={0.2}>
+              <Button variant="heroOutline" size="xl">
+                <Play className="w-5 h-5" />
+                Watch Demo
+              </Button>
+            </Magnetic>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats with Counter Animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,14 +147,18 @@ export const HeroSection = () => {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
           >
             {[
-              { value: "10,000+", label: "Active Users" },
-              { value: "99.99%", label: "Uptime SLA" },
-              { value: "500M+", label: "API Calls/Day" },
-              { value: "4.9/5", label: "Customer Rating" },
+              { value: 10000, suffix: "+", label: "Active Users" },
+              { value: 99.99, suffix: "%", label: "Uptime SLA", isDecimal: true },
+              { value: 500, suffix: "M+", label: "API Calls/Day" },
+              { value: 4.9, suffix: "/5", label: "Customer Rating", isDecimal: true },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
-                  {stat.value}
+                  {stat.isDecimal ? (
+                    <span>{stat.value}{stat.suffix}</span>
+                  ) : (
+                    <Counter end={stat.value} suffix={stat.suffix} duration={2.5} />
+                  )}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
