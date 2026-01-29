@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
@@ -9,38 +12,50 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { ScrollReveal } from "@/components/ScrollReveal";
+import { GsapAnimatedSection } from "@/components/GsapAnimatedSection";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
+  useEffect(() => {
+    // Refresh ScrollTrigger after component mount
+    ScrollTrigger.refresh();
+    
+    // Cleanup on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       <main>
         <HeroSection />
-        <ScrollReveal>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <ServicesSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8} delay={0.1}>
           <HowItWorksSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <FeaturesSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="scale" duration={0.8}>
           <TechStackSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <CaseStudiesSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <TestimonialsSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <AboutSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        </GsapAnimatedSection>
+        <GsapAnimatedSection animation="scale" duration={0.8}>
           <CTASection />
-        </ScrollReveal>
+        </GsapAnimatedSection>
       </main>
       <Footer />
     </div>
