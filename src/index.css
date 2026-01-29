@@ -114,6 +114,32 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth theme transitions */
+  .dark,
+  :root {
+    color-scheme: dark;
+  }
+
+  :root:not(.dark) {
+    color-scheme: light;
+  }
+
+  /* Transition all theme-aware elements */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+  }
+
+  /* Exclude elements that shouldn't transition */
+  *:where([class*="animate-"]),
+  *:where([class*="transition-"]) {
+    transition-property: all;
   }
 }
 

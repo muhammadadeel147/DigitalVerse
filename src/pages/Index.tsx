@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
@@ -10,26 +9,38 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Index = () => {
-  useEffect(() => {
-    // Add dark mode by default for premium look
-    document.documentElement.classList.add("dark");
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       <main>
         <HeroSection />
-        <ServicesSection />
-        <HowItWorksSection />
-        <FeaturesSection />
-        <TechStackSection />
-        <CaseStudiesSection />
-        <TestimonialsSection />
-        <AboutSection />
-        <CTASection />
+        <ScrollReveal>
+          <ServicesSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <HowItWorksSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <FeaturesSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <TechStackSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <CaseStudiesSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <TestimonialsSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <AboutSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <CTASection />
+        </ScrollReveal>
       </main>
       <Footer />
     </div>
