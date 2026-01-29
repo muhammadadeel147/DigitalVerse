@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -58,6 +59,7 @@ export const Navigation = () => {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <Button variant="ghost" size="sm">
             Sign In
           </Button>
@@ -96,6 +98,10 @@ export const Navigation = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t border-border">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-muted-foreground text-sm">Theme</span>
+                  <ThemeToggle />
+                </div>
                 <Button variant="ghost" className="w-full">
                   Sign In
                 </Button>
