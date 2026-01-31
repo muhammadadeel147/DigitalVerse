@@ -4,21 +4,21 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "NexusFlow transformed our entire tech infrastructure. The team's expertise and dedication are unmatched. We've seen a 300% improvement in system performance.",
+    quote: "DigitalVerse transformed our entire tech infrastructure. The team's expertise and dedication are unmatched. We've seen a 300% improvement in system performance.",
     author: "Sarah Chen",
     role: "CTO, TechCorp Global",
     avatar: "SC",
     rating: 5,
   },
   {
-    quote: "Working with NexusFlow was a game-changer. They delivered a complex AI solution in half the expected time, with exceptional quality and documentation.",
+    quote: "Working with DigitalVerse was a game-changer. They delivered a complex AI solution in half the expected time, with exceptional quality and documentation.",
     author: "Michael Rodriguez",
     role: "VP Engineering, FinanceAI",
     avatar: "MR",
     rating: 5,
   },
   {
-    quote: "The scalability and reliability of the platform NexusFlow built for us is remarkable. We've scaled from 10K to 2M users without a single hiccup.",
+    quote: "The scalability and reliability of the platform DigitalVerse built for us is remarkable. We've scaled from 10K to 2M users without a single hiccup.",
     author: "Emma Thompson",
     role: "CEO, ScaleUp Inc",
     avatar: "ET",
@@ -49,7 +49,7 @@ export const TestimonialsSection = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Don't just take our word for it—hear from the teams 
-            who've transformed their businesses with NexusFlow.
+            who've transformed their businesses with DigitalVerse.
           </p>
         </motion.div>
 

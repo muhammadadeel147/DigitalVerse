@@ -64,9 +64,9 @@ export const Navigation = () => {
         <Magnetic strength={0.15}>
           <a href="#" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">N</span>
+              <span className="text-primary-foreground font-bold text-lg">D</span>
             </div>
-            <span className="font-bold text-xl text-foreground">NexusFlow</span>
+            <span className="font-bold text-xl text-foreground">DigitalVerse</span>
           </a>
         </Magnetic>
 

@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" storageKey="nexusflow-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="digitalverse-theme">
       <TooltipProvider>
         <Toaster />
         <Sonner />

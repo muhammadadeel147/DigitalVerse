@@ -112,7 +112,7 @@ export const FeaturesSection = () => {
           >
             <div className="glass-card-glow p-8 md:p-10">
               <h3 className="text-2xl font-bold text-foreground mb-6">
-                Why Teams Choose NexusFlow
+                Why Teams Choose DigitalVerse
               </h3>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (

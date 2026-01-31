@@ -154,7 +154,7 @@ export const CTASection = () => {
           </h2>
           
           <p className="cta-description text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-            Join thousands of companies already using NexusFlow to power their 
+            Join thousands of companies already using DigitalVerse to power their 
             digital transformation. Start your journey today.
           </p>
 
