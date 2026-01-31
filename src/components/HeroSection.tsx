@@ -115,15 +115,15 @@ export const HeroSection = () => {
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span>No Credit Card Required</span>
+              <span>Free Consultation</span>
             </div>
             <div className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-yellow-500" />
-              <span>Launch in 4-8 Weeks</span>
+              <span>4-8 Week Delivery</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-blue-500" />
-              <span>Enterprise-Grade Security</span>
+              <span>24/7 Support Included</span>
             </div>
           </motion.div>
 
