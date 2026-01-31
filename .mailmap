@@ -1,0 +1,6 @@
+# Git mailmap file to normalize author names and emails
+# This remaps old contributor names to DigitalVerse Team
+
+DigitalVerse Team <team@digitalverse.io> Lovable <noreply@lovable.dev>
+DigitalVerse Team <team@digitalverse.io> gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Muhammad Adeel <adeel@digitalverse.io> Muhammad Adeel <118283843+muhammadadeel147@users.noreply.github.com>
