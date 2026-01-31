@@ -28,7 +28,7 @@ export const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-              About NexusFlow
+              About DigitalVerse
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
               Pioneering the Future of{" "}
@@ -36,7 +36,7 @@ export const AboutSection = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Founded in 2018, NexusFlow has grown from a small startup to a global 
+                Founded in 2018, DigitalVerse has grown from a small startup to a global 
                 technology leader, serving Fortune 500 companies and ambitious startups alike.
               </p>
               <p>

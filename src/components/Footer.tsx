@@ -25,9 +25,9 @@ export const Footer = () => {
           <div className="col-span-2">
             <a href="#" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">N</span>
+                <span className="text-primary-foreground font-bold text-lg">D</span>
               </div>
-              <span className="font-bold text-xl text-foreground">NexusFlow</span>
+              <span className="font-bold text-xl text-foreground">DigitalVerse</span>
             </a>
             <p className="text-muted-foreground mb-6 max-w-xs">
               Empowering enterprises to build, deploy, and scale intelligent 
@@ -38,7 +38,7 @@ export const Footer = () => {
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>hello@nexusflow.io</span>
+                <span>hello@digitalverse.io</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
@@ -98,7 +98,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            © 2026 NexusFlow. All rights reserved.
+            © 2026 DigitalVerse. All rights reserved.
           </p>
 
           {/* Social Links */}

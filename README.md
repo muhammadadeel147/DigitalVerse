@@ -1,22 +1,16 @@
-# Welcome to your Lovable project
+# DigitalVerse
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern, AI-powered enterprise software platform built with React, TypeScript, and cutting-edge technologies.
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +56,18 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+You can deploy this project to various hosting platforms:
 
-## Can I connect a custom domain to my Lovable project?
+- **Vercel**: `npm run build` then deploy the `dist` folder
+- **Netlify**: Connect your repository for automatic deployments
+- **AWS/Azure/GCP**: Build and deploy to your preferred cloud provider
 
-Yes, you can!
+## Production Build
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+To create a production build:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```sh
+npm run build
+```
+
+The optimized files will be in the `dist` directory.

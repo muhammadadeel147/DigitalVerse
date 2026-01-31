@@ -19,7 +19,7 @@ interface ThemeProviderProps {
 export function ThemeProvider({
   children,
   defaultTheme = "dark",
-  storageKey = "nexusflow-theme",
+  storageKey = "digitalverse-theme",
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
