@@ -63,9 +63,13 @@ export const Navigation = () => {
         {/* Logo */}
         <Magnetic strength={0.15}>
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
-            </div>
+            <img
+              src="/DigitalVerse1.png"
+              alt="DigitalVerse"
+              className="w-11 h-11 md:w-12 md:h-12 rounded-2xl object-contain bg-white p-1 ring-1 ring-border/60 shadow-glow"
+              loading="eager"
+              decoding="async"
+            />
             <span className="font-bold text-xl text-foreground">DigitalVerse</span>
           </a>
         </Magnetic>
