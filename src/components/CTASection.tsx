@@ -1,14 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, MessageSquare } from "lucide-react";
 import { Button } from "./ui/button";
 import { Magnetic } from "./GsapAnimatedSection";
+import { BookDemoModal } from "./BookDemoModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const CTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -160,15 +162,9 @@ export const CTASection = () => {
 
           <div className="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
             <Magnetic strength={0.2}>
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" onClick={() => setIsBookDemoOpen(true)}>
                 <Calendar className="w-5 h-5" />
                 Book a Demo
-              </Button>
-            </Magnetic>
-            <Magnetic strength={0.2}>
-              <Button variant="heroOutline" size="xl">
-                <MessageSquare className="w-5 h-5" />
-                Contact Sales
               </Button>
             </Magnetic>
           </div>
@@ -190,6 +186,9 @@ export const CTASection = () => {
             </div>
           </div>
         </div>
+
+        {/* Book Demo Modal */}
+        <BookDemoModal isOpen={isBookDemoOpen} onClose={() => setIsBookDemoOpen(false)} />
       </div>
     </section>
   );
