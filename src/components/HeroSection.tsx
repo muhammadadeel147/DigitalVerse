@@ -43,15 +43,22 @@ export const HeroSection = () => {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 text-balance leading-relaxed"
-          >
-            DigitalVerse partners with leading enterprises across healthcare, finance, logistics, and manufacturing 
-            to build custom software that drives digital transformation. From intelligent web and mobile applications 
-            to enterprise systems with AI integration—we deliver scalable solutions that exceed expectations.
-          </motion.p>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.15 }}
+  className="
+    text-lg 
+    md:text-xl 
+    text-muted-foreground 
+    max-w-4xl 
+    mx-auto 
+    mb-10 
+    leading-relaxed
+  "
+>
+  We help enterprises design, build, and scale high-performance web and mobile
+  applications — from MVPs to AI-powered platforms.
+</motion.p>
 
           {/* Industry Tags */}
           <motion.div
