@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Code2, Cloud, Cpu, Shield, Zap, Database, ArrowRight, CheckCircle } from "lucide-react";
+import { BookDemoModal } from "./BookDemoModal";
 
 const services = [
   {
@@ -58,6 +59,7 @@ export const ServicesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
 
   return (
     <section id="services" className="section-padding relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
@@ -198,16 +200,14 @@ export const ServicesSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold shadow-lg hover:shadow-glow transition-all"
-              onClick={() => {
-                const contactSection = document.getElementById('about');
-                contactSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => setIsBookDemoOpen(true)}
             >
               Schedule a Consultation
               <ArrowRight className="w-5 h-5" />
             </motion.button>
           </div>
         </motion.div>
+        <BookDemoModal isOpen={isBookDemoOpen} onClose={() => setIsBookDemoOpen(false)} />
       </div>
     </section>
   );
