@@ -73,6 +73,15 @@ bun dev
 
 The application will be available at `http://localhost:8080`
 
+### 4️⃣ Optional: WhatsApp Floating Contact Button
+
+Set these environment variables in a `.env` file to enable the floating WhatsApp button:
+
+```bash
+VITE_WHATSAPP_NUMBER=923001234567
+VITE_WHATSAPP_MESSAGE=Hi, I want to discuss a project with your team.
+```
+
 ## 📜 Available Scripts
 
 | Command | Description |
