@@ -58,6 +58,16 @@ export const Navigation = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const handleOpenBookDemo = () => setIsBookDemoOpen(true);
+
+    window.addEventListener("open-book-demo", handleOpenBookDemo as EventListener);
+
+    return () => {
+      window.removeEventListener("open-book-demo", handleOpenBookDemo as EventListener);
+    };
+  }, []);
+
   return (
     <motion.header
       ref={navRef}
@@ -110,7 +120,7 @@ export const Navigation = () => {
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-3">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <Button variant="hero" size="sm" className="group text-sm" onClick={handleBookDemo}>
             Book a Demo
             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -119,7 +129,7 @@ export const Navigation = () => {
 
         {/* Mobile: Theme Toggle + Menu Button */}
         <div className="flex lg:hidden items-center gap-3">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="p-2 rounded-xl text-foreground hover:bg-muted/50 transition-colors"

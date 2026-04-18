@@ -62,7 +62,7 @@ export const ServicesSection = () => {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
 
   return (
-    <section id="services" className="section-padding relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
+    <section id="services" className="section-padding !pt-16 md:!pt-20 relative overflow-hidden bg-gradient-to-b from-background to-muted/20 scroll-mt-24">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="glow-orb-primary w-[500px] h-[500px] -top-40 right-0 opacity-10" />
@@ -77,7 +77,7 @@ export const ServicesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-14 md:mb-16"
         >
           <motion.span 
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
@@ -164,6 +164,7 @@ export const ServicesSection = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center gap-2 text-primary font-semibold text-sm group/btn"
+                    onClick={() => setIsBookDemoOpen(true)}
                   >
                     <span>Explore</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
