@@ -13,19 +13,9 @@ export const Footer = () => {
     <footer className="relative bg-muted/30 border-t border-border/50">
       <div className="container-custom py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Brand */}
-          <div className="flex items-center gap-2">
-            <img
-              src="/DigitalVerse1.png"
-              alt="DigitalVerse"
-              className="w-10 h-10 rounded-xl object-contain bg-white p-1 ring-1 ring-border/40"
-              loading="lazy"
-              decoding="async"
-            />
-            <div>
-              <span className="font-bold text-lg text-foreground block">DigitalVerse</span>
-              <p className="text-xs text-muted-foreground">© 2026 All rights reserved.</p>
-            </div>
+          <div>
+            <span className="font-bold text-lg text-foreground block tracking-tight">DigitalVerse</span>
+            <p className="text-xs text-muted-foreground">© 2026 All rights reserved.</p>
           </div>
 
           {/* Social Links */}

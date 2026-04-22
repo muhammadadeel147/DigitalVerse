@@ -83,9 +83,9 @@ const technologies: TechItem[] = [
   { name: "MySQL", Icon: SiMysql, iconClassName: "text-blue-400" },
   { name: "Elasticsearch", Icon: SiElasticsearch, iconClassName: "text-sky-300" },
   { name: "Docker", Icon: SiDocker, iconClassName: "text-sky-500" },
-  { name: "Terraform", Icon: SiTerraform, iconClassName: "text-purple-500" },
+  { name: "Terraform", Icon: SiTerraform, iconClassName: "text-blue-500" },
   { name: "GitHub Actions", Icon: SiGithubactions, iconClassName: "text-blue-500" },
-  { name: "Sentry", Icon: SiSentry, iconClassName: "text-purple-400" },
+  { name: "Sentry", Icon: SiSentry, iconClassName: "text-slate-500" },
   { name: "Prometheus", Icon: SiPrometheus, iconClassName: "text-orange-500" },
   { name: "Grafana", Icon: SiGrafana, iconClassName: "text-orange-400" },
   { name: "TensorFlow", Icon: SiTensorflow, iconClassName: "text-orange-500" },
@@ -97,12 +97,12 @@ const technologies: TechItem[] = [
 ];
 
 const integrations: TechItem[] = [
-  { name: "Stripe", Icon: SiStripe, iconClassName: "text-violet-500" },
-  { name: "Slack", Icon: SiSlack, iconClassName: "text-fuchsia-500" },
+  { name: "Stripe", Icon: SiStripe, iconClassName: "text-sky-600" },
+  { name: "Slack", Icon: SiSlack, iconClassName: "text-cyan-500" },
   { name: "GitHub", Icon: SiGithub, iconClassName: "text-foreground" },
   { name: "Jira", Icon: SiJira, iconClassName: "text-blue-500" },
   { name: "Salesforce", Icon: SiSalesforce, iconClassName: "text-sky-500" },
-  { name: "Datadog", Icon: SiDatadog, iconClassName: "text-purple-500" },
+  { name: "Datadog", Icon: SiDatadog, iconClassName: "text-orange-500" },
 ];
 
 export const TechStackSection = () => {
