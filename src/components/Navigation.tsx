@@ -1,18 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup, useScroll, useMotionValueEvent } from "framer-motion";
 import gsap from "gsap";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Magnetic } from "./GsapAnimatedSection";
 import { BookDemoModal } from "./BookDemoModal";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Features", href: "#features" },
-  { name: "About", href: "#about" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const Navigation = () => {
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState<string>("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,6 +27,23 @@ export const Navigation = () => {
   const handleBookDemo = () => {
     setIsBookDemoOpen(true);
     setIsMobileMenuOpen(false);
+  };
+
+  const isLinkActive = (href: string) => {
+    if (href === "/") {
+      return location.pathname === "/" && activeSection === "home";
+    }
+    if (href === "/services") {
+      return location.pathname === "/services";
+    }
+    if (href === "/about") {
+      return location.pathname === "/about";
+    }
+    if (!href.startsWith("/#")) {
+      return false;
+    }
+    const sectionId = href.replace("/#", "");
+    return location.pathname === "/" && activeSection === sectionId;
   };
 
   // Hide/show navbar on scroll
@@ -66,6 +87,40 @@ export const Navigation = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== "/") return;
+
+    const sectionIds = navLinks
+      .map((link) => (link.href.startsWith("/#") ? link.href.replace("/#", "") : null))
+      .filter((value): value is string => Boolean(value));
+
+    const updateActiveSection = () => {
+      if (window.scrollY < 140) {
+        setActiveSection("home");
+        return;
+      }
+
+      let current = "home";
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (!element) continue;
+        const top = element.getBoundingClientRect().top;
+        if (top <= 180) current = id;
+      }
+
+      if (current) setActiveSection(current);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("hashchange", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
+  }, [location.pathname]);
+
   return (
     <motion.header
       ref={navRef}
@@ -83,7 +138,7 @@ export const Navigation = () => {
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Magnetic strength={0.15}>
-          <a href="#" className="group flex items-center gap-3">
+          <a href="/" className="group flex items-center gap-3">
             <span className="font-bold text-lg md:text-xl tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
               NexMindSystems
             </span>
@@ -92,17 +147,35 @@ export const Navigation = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link, index) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link relative px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-secondary/70 transition-colors duration-200 group"
-              style={{ opacity: 0 }}
-            >
-              {link.name}
-              <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
-            </a>
-          ))}
+          <LayoutGroup id="desktop-nav-tabs">
+            {navLinks.map((link, index) => (
+              <a
+                key={link.name}
+                href={link.href}
+                aria-current={isLinkActive(link.href) ? "page" : undefined}
+                className={`nav-link relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 group ${
+                  isLinkActive(link.href)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary hover:bg-secondary/70"
+                }`}
+                style={{ opacity: 0 }}
+              >
+                {isLinkActive(link.href) ? (
+                  <motion.span
+                    layoutId="active-nav-pill"
+                    className="absolute inset-0 rounded-lg bg-secondary/70"
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                  />
+                ) : null}
+                <span className="relative z-10">{link.name}</span>
+                <span
+                  className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary/80 transition-transform duration-300 origin-left rounded-full ${
+                    isLinkActive(link.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
+            ))}
+          </LayoutGroup>
         </div>
 
         {/* CTA Buttons */}
@@ -166,7 +239,12 @@ export const Navigation = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-foreground hover:text-primary transition-colors py-3 px-4 rounded-xl hover:bg-muted/50 text-base font-medium"
+                    aria-current={isLinkActive(link.href) ? "page" : undefined}
+                    className={`transition-colors py-3 px-4 rounded-xl text-base font-medium ${
+                      isLinkActive(link.href)
+                        ? "text-primary bg-muted/60"
+                        : "text-foreground hover:text-primary hover:bg-muted/50"
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}

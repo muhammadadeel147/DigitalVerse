@@ -137,7 +137,7 @@ export const CTASection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="section-padding relative overflow-hidden scroll-mt-24">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
@@ -147,7 +147,7 @@ export const CTASection = () => {
       <div className="container-custom relative z-10">
         <div className="cta-card glass-card-glow p-12 md:p-16 text-center max-w-4xl mx-auto">
           <span className="cta-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
-            Ready to Transform?
+            Contact NexMindSystems
           </span>
 
           <h2 className="cta-title text-3xl md:text-5xl font-bold text-foreground mb-6">
