@@ -28,7 +28,7 @@ export const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-              About DigitalVerse
+              About NexMindSystems
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
               Building the Infrastructure for{" "}
@@ -48,7 +48,7 @@ export const AboutSection = () => {
               <p>
                 Every line of code, every API endpoint, and every feature is crafted with 
                 obsessive attention to developer experience and enterprise-grade security. 
-                Join thousands of teams who trust DigitalVerse to power their mission-critical applications.
+                Join thousands of teams who trust NexMindSystems to power their mission-critical applications.
               </p>
             </div>
 

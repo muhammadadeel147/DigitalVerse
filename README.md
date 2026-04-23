@@ -1,8 +1,8 @@
-# DigitalVerse
+# NexMindSystems
 
 <div align="center">
   
-  ![DigitalVerse](https://img.shields.io/badge/DigitalVerse-Enterprise%20Software-blue?style=for-the-badge)
+  ![NexMindSystems](https://img.shields.io/badge/NexMindSystems-Enterprise%20Software-blue?style=for-the-badge)
   ![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react)
   ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript)
   ![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?style=for-the-badge&logo=vite)
@@ -11,7 +11,7 @@
 
 ## 🚀 About
 
-**DigitalVerse** is a modern, enterprise-grade software platform designed for healthcare, finance, logistics, and manufacturing industries. Built with cutting-edge technologies to deliver scalable, intelligent solutions that drive digital transformation.
+**NexMindSystems** is a modern, enterprise-grade software platform designed for healthcare, finance, logistics, and manufacturing industries. Built with cutting-edge technologies to deliver scalable, intelligent solutions that drive digital transformation.
 
 ### ✨ Key Features
 
@@ -52,7 +52,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone <YOUR_GIT_URL>
-cd digitalverse
+cd nexmindsystems
 ```
 
 ### 2️⃣ Install Dependencies
@@ -113,7 +113,7 @@ The build artifacts will be stored in the `dist/` directory, ready for deploymen
 
 ## 🌐 Deployment
 
-Deploy DigitalVerse to your preferred platform:
+Deploy NexMindSystems to your preferred platform:
 
 ### Vercel (Recommended)
 
@@ -157,7 +157,7 @@ CMD ["npm", "run", "preview"]
 ## 🏗️ Project Structure
 
 ```
-digitalverse/
+nexmindsystems/
 ├── public/              # Static assets
 ├── src/
 │   ├── components/      # React components
@@ -229,13 +229,13 @@ Contributions are welcome! Please follow these steps:
 
 ## 📝 License
 
-This project is proprietary software owned by DigitalVerse. All rights reserved.
+This project is proprietary software owned by NexMindSystems. All rights reserved.
 
 ## 📞 Support
 
 Need help? Reach out to us:
 
-- 📧 Email: hello@digitalverse.io
+- 📧 Email: hello@nexmindsystems.io
 - 🌐 Website: [Coming Soon]
 - 💬 Discord: [Coming Soon]
 
@@ -251,7 +251,7 @@ Need help? Reach out to us:
 
 <div align="center">
   
-  **Made with ❤️ by DigitalVerse Team**
+  **Made with ❤️ by NexMindSystems Team**
   
   ⭐ Star us on GitHub if you find this helpful!
   

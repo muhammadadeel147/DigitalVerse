@@ -5,7 +5,7 @@ const socialLinks = [
   { icon: Twitter, href: "#", label: "Twitter" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Mail, href: "mailto:hello@digitalverse.io", label: "Email" },
+  { icon: Mail, href: "mailto:hello@nexmindsystems.io", label: "Email" },
 ];
 
 export const Footer = () => {
@@ -14,7 +14,7 @@ export const Footer = () => {
       <div className="container-custom py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <span className="font-bold text-lg text-foreground block tracking-tight">DigitalVerse</span>
+            <span className="font-bold text-lg text-foreground block tracking-tight">NexMindSystems</span>
             <p className="text-xs text-muted-foreground">© 2026 All rights reserved.</p>
           </div>
 
