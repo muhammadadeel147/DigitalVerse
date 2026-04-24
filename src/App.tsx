@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 import Services from "@/pages/Services";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

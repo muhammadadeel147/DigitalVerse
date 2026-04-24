@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export const Navigation = () => {
@@ -37,6 +37,9 @@ export const Navigation = () => {
     }
     if (href === "/about") {
       return location.pathname === "/about";
+    }
+    if (href === "/contact") {
+      return location.pathname === "/contact";
     }
     if (!href.startsWith("/#")) {
       return false;
