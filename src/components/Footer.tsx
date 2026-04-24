@@ -11,13 +11,13 @@ const socialLinks = [
 export const Footer = () => {
   return (
     <footer className="relative bg-muted/30 border-t border-border/50">
-      <div className="container-custom py-2">
-        <div className="container-custom flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-          <div className="flex items-center ">
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
+          <div className="flex items-center">
             <img
               src="/nexmindsystems.png"
               alt="NexMindSystems logo"
-             className="h-24 md:h-36 w-auto max-w-[240px] object-contain"
+              className="h-20 md:h-28 w-auto max-w-[340px] object-contain"
               loading="lazy"
             />
           </div>
