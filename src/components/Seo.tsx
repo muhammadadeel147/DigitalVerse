@@ -30,7 +30,7 @@ export const Seo = ({
   keywords,
   robots,
   ogType = "website",
-  imagePath = "/NexMindSystems1.png",
+  imagePath = "/nexmindsystems.png",
   twitterSite = "@NexMindSystems",
   noIndex = false,
   schema,

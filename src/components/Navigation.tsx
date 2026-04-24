@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Magnetic } from "./GsapAnimatedSection";
 import { BookDemoModal } from "./BookDemoModal";
 
 const navLinks = [
@@ -137,13 +136,14 @@ export const Navigation = () => {
       }`}
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <Magnetic strength={0.15}>
-          <a href="/" className="group flex items-center gap-3">
-            <span className="font-bold text-lg md:text-xl tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-              NexMindSystems
-            </span>
-          </a>
-        </Magnetic>
+        <a href="/" className="group flex items-center">
+          <img
+            src="/nexmindsystems.png"
+            alt="NexMindSystems logo"
+            className="h-24 md:h-36 w-auto max-w-[240px] object-contain"
+            loading="eager"
+          />
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">

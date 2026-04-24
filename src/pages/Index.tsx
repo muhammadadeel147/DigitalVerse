@@ -24,7 +24,7 @@ const Index = () => {
       "@type": "Organization",
       name: "NexMindSystems",
       url: "https://nexmindsystems.com",
-      logo: "https://nexmindsystems.com/NexMindSystems1.png",
+      logo: "https://nexmindsystems.com/nexmindsystems.png",
       sameAs: [
         "https://www.linkedin.com/",
         "https://x.com/",
@@ -77,6 +77,9 @@ const Index = () => {
         <GsapAnimatedSection animation="fadeUp" duration={0.8}>
           <ServicesSection />
         </GsapAnimatedSection>
+           <GsapAnimatedSection animation="fadeUp" duration={0.8}>
+          <AboutSection />
+        </GsapAnimatedSection>
         <GsapAnimatedSection animation="fadeUp" duration={0.8} delay={0.1}>
           <HowItWorksSection />
         </GsapAnimatedSection>
@@ -86,18 +89,9 @@ const Index = () => {
         <GsapAnimatedSection animation="scale" duration={0.8}>
           <TechStackSection />
         </GsapAnimatedSection>
-        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
-          <CaseStudiesSection />
-        </GsapAnimatedSection>
-        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
-          <TestimonialsSection />
-        </GsapAnimatedSection>
-        <GsapAnimatedSection animation="fadeUp" duration={0.8}>
-          <AboutSection />
-        </GsapAnimatedSection>
-        <GsapAnimatedSection animation="scale" duration={0.8}>
-          <CTASection />
-        </GsapAnimatedSection>
+        <CaseStudiesSection />
+        <TestimonialsSection />
+        <CTASection />
       </main>
       <Footer />
     </div>
