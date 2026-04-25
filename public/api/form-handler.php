@@ -5,8 +5,8 @@ header('Content-Type: application/json; charset=UTF-8');
 header('X-Content-Type-Options: nosniff');
 
 const TARGET_EMAILS = [
-    'mirhaaliiadeel@gmail.com',
-    'muhammaddadeel90@gmail.com',
+    'info@nexmindsystems.com',
+    'muhammaddadeel90@gmail.com'
 ];
 
 respondPreflight();

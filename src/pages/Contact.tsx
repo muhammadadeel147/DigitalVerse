@@ -50,7 +50,7 @@ const Contact = () => {
           {
             "@type": "ContactPoint",
             contactType: "sales",
-            email: "hello@nexmindsystems.io",
+            email: "info@nexmindsystems.com",
             availableLanguage: ["en"],
           },
         ],
@@ -232,11 +232,11 @@ const Contact = () => {
                 </p>
 
                 <div className="mt-6 space-y-4">
-                  <a href="mailto:hello@nexmindsystems.io" className="flex items-start gap-3 rounded-2xl border border-border/60 bg-muted/35 p-4 hover:border-primary/40 transition-colors">
+                  <a href="mailto:info@nexmindsystems.com" className="flex items-start gap-3 rounded-2xl border border-border/60 bg-muted/35 p-4 hover:border-primary/40 transition-colors">
                     <Mail className="h-5 w-5 mt-0.5 text-primary" />
                     <div>
                       <p className="font-semibold">Email</p>
-                      <p className="text-sm text-muted-foreground">hello@nexmindsystems.io</p>
+                      <p className="text-sm text-muted-foreground">info@nexmindsystems.com</p>
                     </div>
                   </a>
 

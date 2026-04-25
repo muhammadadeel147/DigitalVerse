@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 const socialLinks = [
   { icon: Linkedin, href: "/about", label: "About NexMindSystems" },
   { icon: Github, href: "/services", label: "View Services" },
-  { icon: Mail, href: "mailto:hello@nexmindsystems.io", label: "Email" },
+  { icon: Mail, href: "mailto:info@nexmindsystems.com", label: "Email" },
   { icon: MessageCircle, href: "https://wa.me/923052515148", label: "WhatsApp" },
 ];
 

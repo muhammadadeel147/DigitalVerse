@@ -41,7 +41,7 @@ const Index = () => {
         {
           "@type": "ContactPoint",
           contactType: "sales",
-          email: "hello@nexmindsystems.io",
+          email: "info@nexmindsystems.com",
           availableLanguage: ["en"],
         },
       ],

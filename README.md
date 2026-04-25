@@ -235,7 +235,7 @@ This project is proprietary software owned by NexMindSystems. All rights reserve
 
 Need help? Reach out to us:
 
-- 📧 Email: hello@nexmindsystems.io
+- 📧 Email: info@nexmindsystems.com
 - 🌐 Website: [Coming Soon]
 - 💬 Discord: [Coming Soon]
 
