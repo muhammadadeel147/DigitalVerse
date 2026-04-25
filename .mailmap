@@ -1,7 +1,4 @@
 # Git mailmap file to normalize author names and emails
-# This remaps old contributor names to NexMindSystems Team
 
-NexMindSystems Team <team@nexmindsystems.io> Lovable <noreply@lovable.dev>
-Muhammad Adeel <adeel@nexmindsystems.io> lovable-dev[bot] <lovable-dev[bot]@users.noreply.github.com>
-NexMindSystems Team <team@nexmindsystems.io> gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
-Muhammad Adeel <adeel@nexmindsystems.io> Muhammad Adeel <118283843+muhammadadeel147@users.noreply.github.com>
+Muhammad Adeel <muhammaddadeel90@gmail.com> gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Muhammad Adeel <muhammaddadeel90@gmail.com> Muhammad Adeel <118283843+muhammadadeel147@users.noreply.github.com>
