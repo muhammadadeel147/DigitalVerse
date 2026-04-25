@@ -17,7 +17,7 @@ export const Footer = () => {
             <img
               src="/nexmindsystems.png"
               alt="NexMindSystems logo"
-              className="h-20 md:h-28 w-auto max-w-[340px] object-contain"
+              className="h-20 md:h-26 w-auto max-w-[340px] object-contain"
               loading="lazy"
             />
           </div>
