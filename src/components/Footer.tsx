@@ -21,7 +21,7 @@ export const Footer = () => {
               loading="lazy"
             />
             <p className="mx-auto max-w-md text-xs leading-relaxed text-muted-foreground md:mx-0 md:text-sm">
-              NextMindSystems is a software house for Custom web apps, AI automation, cloud engineering, MVP development, and product design.
+              NexMindSystems is a software house for custom web apps, AI automation, cloud engineering, MVP development, and product design.
             </p>
           </div>
 

@@ -77,10 +77,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Seo
-        title="NexMindSystems | Custom Software Development Agency"
-        description="NexMindSystems is a software house for custom web apps, MVP development, AI automation, cloud engineering, and product design that helps businesses win more clients."
+        title="NexMindSystems | Software Product Development Company"
+        description="NexMindSystems is a software house for custom web apps, SaaS products, AI automation, cloud engineering, and product design that helps businesses win more clients."
         path="/"
-        keywords="software house, software development agency, custom software development, web app development, AI automation agency, MVP development, cloud engineering, product engineering"
+        keywords="software house, software product development company, custom software development, web app development, AI automation, SaaS development, MVP development, cloud engineering, product engineering"
         schema={homeSchema}
       />
       <Navigation />
