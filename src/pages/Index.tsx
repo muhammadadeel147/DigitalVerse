@@ -22,6 +22,7 @@ const Index = () => {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://nexmindsystems.com/#organization",
       name: "NexMindSystems",
       url: "https://nexmindsystems.com",
       logo: "https://nexmindsystems.com/nexmindsystems.png",
@@ -48,8 +49,13 @@ const Index = () => {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://nexmindsystems.com/#website",
       name: "NexMindSystems",
+      alternateName: "NexMind Systems",
       url: "https://nexmindsystems.com",
+      publisher: {
+        "@id": "https://nexmindsystems.com/#organization",
+      },
       potentialAction: {
         "@type": "SearchAction",
         target: "https://nexmindsystems.com/services?q={search_term_string}",

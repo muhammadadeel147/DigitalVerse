@@ -33,9 +33,18 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
     phone: "",
     message: "",
     preferredDate: "",
+    preferredTime: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const todayLocal = (() => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  })();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +56,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
         email: formData.email.trim(),
         company: formData.company.trim(),
         phone: formData.phone.trim(),
-        preferredDate: formData.preferredDate.trim(),
+        preferredDate: [formData.preferredDate.trim(), formData.preferredTime.trim()].filter(Boolean).join(" "),
         message: formData.message.trim(),
         website: "",
       });
@@ -64,6 +73,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
           phone: "",
           message: "",
           preferredDate: "",
+          preferredTime: "",
         });
         onClose();
       }, 2000);
@@ -184,7 +194,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                   </motion.div>
                 ) : (
                   <div className="grid lg:grid-cols-[0.92fr_1.08fr]">
-                    <aside className="relative overflow-hidden bg-[linear-gradient(180deg,hsl(var(--primary))_0%,hsl(var(--accent))_100%)] px-6 py-10 text-primary-foreground sm:px-8 sm:py-12">
+                    <aside className="relative hidden overflow-hidden bg-[linear-gradient(180deg,hsl(var(--primary))_0%,hsl(var(--accent))_100%)] px-6 py-10 text-primary-foreground sm:px-8 sm:py-12 lg:block">
                       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.28),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.18),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(45deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:auto,auto,28px_28px,28px_28px]" />
                       <div className="relative">
                         <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-sm">
@@ -230,7 +240,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                       </div>
                     </aside>
 
-                    <div className="bg-card/90 px-6 py-10 sm:px-8 sm:py-12">
+                    <div className="bg-card/90 px-4 py-7 sm:px-8 sm:py-12">
                       <div className="mb-8">
                         <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
                           <Sparkles className="h-4 w-4" />
@@ -309,18 +319,35 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                           </div>
                         </div>
 
-                        <div className="space-y-2">
-                          <label className="flex items-center gap-2 text-sm font-medium text-foreground">
-                            <Calendar className="h-4 w-4 text-primary" />
-                            Preferred Date & Time
-                          </label>
-                          <Input
-                            type="datetime-local"
-                            name="preferredDate"
-                            value={formData.preferredDate}
-                            onChange={handleChange}
-                            className="h-12 rounded-xl"
-                          />
+                        <div className="grid gap-5 md:grid-cols-2">
+                          <div className="space-y-2">
+                            <label className="flex items-center gap-2 text-sm font-medium text-foreground">
+                              <Calendar className="h-4 w-4 text-primary" />
+                              Preferred Date
+                            </label>
+                            <Input
+                              type="date"
+                              name="preferredDate"
+                              value={formData.preferredDate}
+                              onChange={handleChange}
+                              min={todayLocal}
+                              className="h-12 rounded-xl"
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <label className="flex items-center gap-2 text-sm font-medium text-foreground">
+                              <Clock3 className="h-4 w-4 text-primary" />
+                              Preferred Time
+                            </label>
+                            <Input
+                              type="time"
+                              name="preferredTime"
+                              value={formData.preferredTime}
+                              onChange={handleChange}
+                              step={900}
+                              className="h-12 rounded-xl"
+                            />
+                          </div>
                         </div>
 
                         <div className="space-y-2">
