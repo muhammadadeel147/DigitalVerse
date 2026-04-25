@@ -25,10 +25,16 @@ const Index = () => {
       name: "NexMindSystems",
       url: "https://nexmindsystems.com",
       logo: "https://nexmindsystems.com/nexmindsystems.png",
-      sameAs: [
-        "https://www.linkedin.com/",
-        "https://x.com/",
-        "https://github.com/",
+      description:
+        "A software house and product engineering agency that builds custom web apps, AI automation, cloud platforms, and digital products.",
+      areaServed: "Global",
+      knowsAbout: [
+        "custom software development",
+        "web application development",
+        "AI automation",
+        "cloud migration",
+        "MVP development",
+        "product engineering",
       ],
       contactPoint: [
         {
@@ -46,7 +52,7 @@ const Index = () => {
       url: "https://nexmindsystems.com",
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://nexmindsystems.com/?q={search_term_string}",
+        target: "https://nexmindsystems.com/services?q={search_term_string}",
         "query-input": "required name=search_term_string",
       },
     },
@@ -65,10 +71,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Seo
-        title="NexMindSystems | Enterprise Software and Product Engineering"
-        description="NexMindSystems helps enterprises design, build, and scale secure digital products with AI, cloud-native architecture, and high-performance engineering."
+        title="NexMindSystems | Custom Software Development Agency"
+        description="NexMindSystems is a software house for custom web apps, MVP development, AI automation, cloud engineering, and product design that helps businesses win more clients."
         path="/"
-        keywords="NexMindSystems, enterprise software, product engineering, AI solutions, cloud-native architecture, digital transformation"
+        keywords="software house, software development agency, custom software development, web app development, AI automation agency, MVP development, cloud engineering, product engineering"
         schema={homeSchema}
       />
       <Navigation />

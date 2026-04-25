@@ -4,11 +4,15 @@ type SeoProps = {
   title: string;
   description: string;
   path: string;
+  siteName?: string;
   keywords?: string;
   robots?: string;
   ogType?: "website" | "article";
   imagePath?: string;
+  imageAlt?: string;
   twitterSite?: string;
+  twitterCreator?: string;
+  locale?: string;
   noIndex?: boolean;
   schema?: object | object[];
 };
@@ -27,18 +31,24 @@ export const Seo = ({
   title,
   description,
   path,
+  siteName = "NexMindSystems",
   keywords,
   robots,
   ogType = "website",
   imagePath = "/nexmindsystems.png",
+  imageAlt,
   twitterSite = "@NexMindSystems",
+  twitterCreator = "@NexMindSystems",
+  locale = "en_US",
   noIndex = false,
   schema,
 }: SeoProps) => {
   useEffect(() => {
     const previousTitle = document.title;
-    const canonicalUrl = `${window.location.origin}${path}`;
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    const canonicalUrl = `${window.location.origin}${normalizedPath}`;
     const imageUrl = imagePath.startsWith("http") ? imagePath : `${window.location.origin}${imagePath}`;
+    const resolvedImageAlt = imageAlt ?? `${siteName} - ${title}`;
 
     const restoreActions: Array<() => void> = [];
 
@@ -88,6 +98,9 @@ export const Seo = ({
 
     document.title = title;
 
+    setMetaByName("application-name", siteName);
+    setMetaByName("author", siteName);
+
     setMetaByName("description", description);
     setMetaByName("robots", noIndex ? "noindex, nofollow" : robots ?? "index, follow");
     if (keywords) setMetaByName("keywords", keywords);
@@ -96,13 +109,18 @@ export const Seo = ({
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:type", ogType);
     setMetaByProperty("og:url", canonicalUrl);
+    setMetaByProperty("og:site_name", siteName);
+    setMetaByProperty("og:locale", locale);
     setMetaByProperty("og:image", imageUrl);
+    setMetaByProperty("og:image:alt", resolvedImageAlt);
 
     setMetaByName("twitter:card", "summary_large_image");
     setMetaByName("twitter:site", twitterSite);
+    setMetaByName("twitter:creator", twitterCreator);
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
     setMetaByName("twitter:image", imageUrl);
+    setMetaByName("twitter:image:alt", resolvedImageAlt);
 
     let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     const canonicalExisted = Boolean(canonical);
@@ -141,7 +159,7 @@ export const Seo = ({
       document.title = previousTitle;
       restoreActions.reverse().forEach((restore) => restore());
     };
-  }, [description, imagePath, keywords, noIndex, ogType, path, robots, schema, title, twitterSite]);
+  }, [description, imageAlt, imagePath, keywords, locale, noIndex, ogType, path, robots, schema, siteName, title, twitterCreator, twitterSite]);
 
   return null;
 };

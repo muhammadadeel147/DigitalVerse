@@ -64,15 +64,15 @@ export const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-            Features & Benefits
+            Why Clients Choose Us
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            Everything You Need to{" "}
-            <span className="gradient-text">Succeed</span>
+            Everything Needed to{" "}
+            <span className="gradient-text">Launch Well</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A complete platform designed for teams who demand excellence, 
-            with features that empower innovation at scale.
+            A complete service model for teams that need clear strategy, dependable delivery, and software built to
+            win clients.
           </p>
         </motion.div>
 

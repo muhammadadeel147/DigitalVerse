@@ -210,15 +210,15 @@ export const TechStackSection = () => {
         {/* Section Header */}
         <div className="tech-header text-center mb-16">
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-            Technology
+            Technology Stack
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
             Built With{" "}
-            <span className="gradient-text">Modern Stack</span>
+            <span className="gradient-text">Modern Tools</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We leverage industry-leading technologies to deliver scalable, 
-            maintainable, and future-proof solutions.
+            We use practical, battle-tested technologies to deliver scalable, maintainable software that is easy to
+            evolve after launch.
           </p>
         </div>
 

@@ -31,24 +31,23 @@ export const AboutSection = () => {
               About NexMindSystems
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-              Building the Infrastructure for{" "}
-              <span className="gradient-text">Next-Gen Applications</span>
+              Building Software That Helps You{" "}
+              <span className="gradient-text">Get More Clients</span>
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                We empower developers and enterprises to build scalable, intelligent 
-                applications with our cutting-edge platform. From AI-powered analytics 
-                to cloud-native architecture, we provide the tools that modern teams need.
+                NexMindSystems is a software house and product engineering partner for startups, founders, and growing
+                businesses. We design, build, and improve web apps, SaaS products, AI automation, and cloud platforms
+                that support real revenue goals.
               </p>
               <p>
-                Our platform handles millions of requests daily, serving organizations 
-                that demand reliability, performance, and innovation. We're not just 
-                building software—we're shaping how the world builds software.
+                Instead of shipping generic templates, we focus on clear strategy, strong UX, reliable engineering,
+                and delivery processes that keep projects moving. That makes it easier for clients to trust the work
+                and for your team to keep growing after launch.
               </p>
               <p>
-                Every line of code, every API endpoint, and every feature is crafted with 
-                obsessive attention to developer experience and enterprise-grade security. 
-                Join thousands of teams who trust NexMindSystems to power their mission-critical applications.
+                Every line of code, every API endpoint, and every feature is built with attention to performance,
+                maintainability, and security. We care about the outcome, not just the launch date.
               </p>
             </div>
 
@@ -238,8 +237,8 @@ export const AboutSection = () => {
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-foreground">Enterprise Ready</div>
-                  <div className="text-xs text-muted-foreground">SOC 2 Certified</div>
+                  <div className="text-sm font-medium text-foreground">Launch Ready</div>
+                  <div className="text-xs text-muted-foreground">Security-focused delivery</div>
                 </div>
               </div>
             </motion.div>

@@ -94,10 +94,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Seo
-        title="Contact NexMindSystems | Enterprise Engineering Team"
-        description="Contact NexMindSystems to discuss cloud, AI, security, and product engineering initiatives. Share your goals and get a practical delivery plan."
+        title="Contact NexMindSystems | Get a Software Project Quote"
+        description="Contact NexMindSystems to discuss custom software development, AI automation, cloud engineering, or MVP delivery. Share your goals and get a practical plan."
         path="/contact"
-        keywords="contact NexMindSystems, enterprise software consultation, cloud engineering contact, AI development services contact"
+        keywords="contact NexMindSystems, software project quote, custom software consultation, AI automation contact, cloud engineering contact, MVP development"
         schema={contactSchema}
       />
       <Navigation />
@@ -121,7 +121,7 @@ const Contact = () => {
               </span>
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.04]">
                 Talk to the Team Building
-                <span className="gradient-text"> Enterprise Velocity</span>
+                <span className="gradient-text"> Client-Ready Software</span>
               </h1>
               <p className="mt-6 max-w-3xl text-lg md:text-xl text-muted-foreground leading-relaxed">
                 Share your goals, constraints, and timeline. We will map the right technical path for delivery,

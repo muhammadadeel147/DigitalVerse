@@ -151,13 +151,13 @@ export const CTASection = () => {
           </span>
 
           <h2 className="cta-title text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Let's Build Something{" "}
-            <span className="gradient-text">Extraordinary</span>
+            Ready to Turn an Idea Into a{" "}
+            <span className="gradient-text">Client-Ready Product</span>
           </h2>
           
           <p className="cta-description text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-            Join thousands of companies already using NexMindSystems to power their 
-            digital transformation. Start your journey today.
+            Tell us what you want to build, who it is for, and what success looks like. We’ll help you shape the right
+            software plan and the fastest path to launch.
           </p>
 
           <div className="cta-buttons flex flex-col sm:flex-row gap-4 justify-center">
@@ -172,10 +172,10 @@ export const CTASection = () => {
           {/* Trust Indicators */}
           <div className="trust-section mt-10 pt-10 border-t border-border/50">
             <p className="text-sm text-muted-foreground mb-4">
-              Trusted by leading companies worldwide
+              Typical engagement areas
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8">
-              {["Microsoft", "Google", "Amazon", "Meta", "Netflix"].map((company) => (
+              {["Custom Web Apps", "MVP Builds", "AI Automation", "Cloud Migration", "Product Design"].map((company) => (
                 <span
                   key={company}
                   className="company-name text-xl font-bold text-muted-foreground/30"

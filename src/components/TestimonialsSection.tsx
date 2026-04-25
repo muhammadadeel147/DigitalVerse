@@ -44,12 +44,12 @@ export const TestimonialsSection = () => {
             Testimonials
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            Loved by{" "}
-            <span className="gradient-text">Industry Leaders</span>
+            Trusted by{" "}
+            <span className="gradient-text">Founders and Teams</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Don't just take our word for it—hear from the teams 
-            who've transformed their businesses with NexMindSystems.
+            Don't just take our word for it. Hear from teams that needed a dependable software partner to ship faster
+            and scale with confidence.
           </p>
         </motion.div>
 

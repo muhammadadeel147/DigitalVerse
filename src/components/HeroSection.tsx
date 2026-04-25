@@ -36,7 +36,7 @@ export const HeroSection = () => {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs sm:text-sm font-semibold mb-6 sm:mb-7 backdrop-blur-sm">
                   <Sparkles className="w-4 h-4" />
-                  Software Partner For Ambitious Teams
+                  Custom Software Development Agency
                 </span>
               </motion.div>
 
@@ -46,7 +46,7 @@ export const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.08 }}
                 className="text-4xl sm:text-5xl md:text-[3.25rem] lg:text-[3.45rem] xl:text-[3.7rem] font-black tracking-[-0.02em] text-foreground mb-5 sm:mb-6 leading-[1.02] max-w-[16ch] mx-auto lg:mx-0"
               >
-                We Design And Build <span className="gradient-text">Enterprise Software That Wins Markets</span>
+                We Design And Build <span className="gradient-text">Software That Wins More Clients</span>
               </motion.h1>
 
               <motion.p
@@ -55,9 +55,9 @@ export const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.16 }}
                 className="text-base sm:text-lg md:text-[1.1rem] text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-7 sm:mb-8 leading-relaxed"
               >
-                Strategy, UX, and engineering in one senior team. We ship web and
-                mobile products that reduce complexity, accelerate growth, and scale
-                without rewrites.
+                NexMindSystems is a software house for custom web apps, SaaS products, AI automation, and cloud
+                platforms. We combine strategy, UX, and engineering to help growth-focused teams launch faster and
+                convert more leads.
               </motion.p>
 
               <motion.div
@@ -130,9 +130,9 @@ export const HeroSection = () => {
 
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex flex-col sm:flex-row gap-2 sm:gap-0 sm:justify-between sm:items-center">
                     <div className="glass-card px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold text-foreground">
-                      Delivery Command Center
+                      Client Delivery Command Center
                     </div>
-                    <div className="glass-card px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold text-green-500 flex items-center gap-1.5">
+                    <div className="glass-card px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold text-black-500 flex items-center gap-1.5">
                       <CircleDashed className="w-3.5 h-3.5 animate-spin" />
                       Live Tracking
                     </div>
@@ -144,14 +144,14 @@ export const HeroSection = () => {
                         <BarChart3 className="w-4 h-4" />
                         <span className="text-xs font-semibold">Performance</span>
                       </div>
-                      <div className="text-xs sm:text-sm font-semibold">+41% Release Velocity</div>
+                      <div className="text-xs sm:text-sm font-semibold">Faster release velocity</div>
                     </div>
                     <div className="glass-card px-3.5 py-3 rounded-xl border border-border/60">
                       <div className="flex items-center gap-2 mb-1.5 text-accent">
                         <Rocket className="w-4 h-4" />
                         <span className="text-xs font-semibold">Product Impact</span>
                       </div>
-                      <div className="text-xs sm:text-sm font-semibold">2.6x Faster Roadmaps</div>
+                      <div className="text-xs sm:text-sm font-semibold">Shorter roadmap cycles</div>
                     </div>
                   </div>
                 </div>
@@ -161,14 +161,14 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, x: -20, y: 12 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.8 }}
-                className="absolute -left-8 xl:-left-10 top-[14%] hidden xl:block"
+                className="absolute -left-8 xl:-left-10 top-[16%] hidden xl:block"
               >
                 <div className="glass-card px-4 py-3 rounded-2xl border border-border/60 shadow-2xl">
                   <div className="flex items-center gap-2 text-sm font-medium">
                     <Zap className="w-4 h-4 text-yellow-500" />
                     AI Workflow Boost
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">40% faster processing</div>
+                  <div className="text-xs text-muted-foreground mt-1">Automation that saves time</div>
                 </div>
               </motion.div>
 
@@ -183,7 +183,7 @@ export const HeroSection = () => {
                     <Shield className="w-4 h-4 text-blue-500" />
                     Enterprise Security
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">SOC 2 aligned delivery</div>
+                  <div className="text-xs text-muted-foreground mt-1">Security-first delivery</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -195,7 +195,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.42 }}
             className="mt-10 flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start"
           >
-            {["Healthcare", "FinTech", "E-Commerce", "Logistics", "Manufacturing"].map((industry, index) => (
+            {["B2B SaaS", "Healthcare", "FinTech", "E-Commerce", "Logistics"].map((industry, index) => (
               <motion.span
                 key={industry}
                 initial={{ opacity: 0, scale: 0.95 }}

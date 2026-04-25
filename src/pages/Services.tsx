@@ -59,19 +59,39 @@ const serviceStats = [
 ];
 
 const Services = () => {
-  const servicesSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: "Enterprise Product Engineering",
-    provider: {
-      "@type": "Organization",
-      name: "NexMindSystems",
-      url: "https://nexmindsystems.com",
+  const servicesSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://nexmindsystems.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://nexmindsystems.com/services",
+        },
+      ],
     },
-    areaServed: "Global",
-    description:
-      "NexMindSystems provides enterprise software services including cloud engineering, AI enablement, workflow automation, security, and data platform delivery.",
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Software Development Services",
+      provider: {
+        "@type": "Organization",
+        name: "NexMindSystems",
+        url: "https://nexmindsystems.com",
+      },
+      areaServed: "Global",
+      description:
+        "NexMindSystems provides software development services including cloud engineering, AI enablement, workflow automation, security, and data platform delivery.",
+    },
+  ];
 
   const openBookDemoPopup = () => {
     window.dispatchEvent(new Event("open-book-demo"));
@@ -80,10 +100,10 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Seo
-        title="Services | NexMindSystems Enterprise Engineering"
-        description="Explore NexMindSystems services: cloud engineering, AI product enablement, workflow automation, security, and enterprise data platforms."
+        title="Software Development Services | NexMindSystems"
+        description="Explore NexMindSystems software development services: custom web apps, MVPs, cloud engineering, AI automation, product design, and data platforms."
         path="/services"
-        keywords="enterprise engineering services, AI engineering services, cloud platform engineering, software modernization, NexMindSystems services"
+        keywords="software development services, custom web app development, AI automation services, cloud engineering, MVP development, software modernization, product engineering"
         schema={servicesSchema}
       />
       <Navigation />
@@ -105,12 +125,12 @@ const Services = () => {
               >
                 <span className="text-primary text-xs md:text-sm font-semibold uppercase tracking-[0.18em]">Services</span>
                 <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.03] text-balance">
-                  Engineering Services Built for
-                  <span className="gradient-text"> Enterprise Velocity</span>
+                  Software Development Services Built for
+                  <span className="gradient-text"> Client Growth</span>
                 </h1>
                 <p className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                  We partner with teams that need modern software systems to ship faster, operate safely, and scale
-                  without bottlenecks.
+                  We partner with startups, founders, and growing businesses that need modern software systems to
+                  launch faster, win more leads, and scale without bottlenecks.
                 </p>
 
                 <div className="mt-8 md:mt-10 flex flex-col sm:flex-row sm:flex-wrap gap-3">
@@ -133,7 +153,7 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: 0.12 }}
                 className="glass-card rounded-3xl p-6 md:p-7"
               >
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Services Stats Rail</div>
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Delivery Highlights</div>
                 <div className="mt-5 space-y-3">
                   {serviceStats.map((item) => (
                     <div key={item.label} className="rounded-2xl border border-border/60 bg-muted/35 p-4">
@@ -195,10 +215,11 @@ const Services = () => {
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                 <div>
                   <span className="text-primary text-sm font-semibold uppercase tracking-wider">Engagement Journey</span>
-                  <h2 className="mt-3 text-2xl md:text-4xl font-bold">How We Turn Strategy Into Delivery</h2>
+                  <h2 className="mt-3 text-2xl md:text-4xl font-bold">How We Turn Business Goals Into Software</h2>
                 </div>
                 <p className="text-muted-foreground md:max-w-md">
-                  A practical collaboration model built for clarity, speed, and measurable outcomes.
+                  A practical collaboration model built for clarity, speed, and measurable outcomes that matter to your
+                  pipeline and your customers.
                 </p>
               </div>
 
@@ -231,9 +252,9 @@ const Services = () => {
         <section className="section-padding pt-8">
           <div className="container-custom max-w-4xl">
             <div className="glass-card-glow p-8 md:p-10 rounded-3xl text-center">
-              <h2 className="text-3xl md:text-4xl font-bold">Need a tailored service roadmap?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Need a tailored software roadmap?</h2>
               <p className="mt-4 text-muted-foreground text-lg">
-                Get a practical delivery plan aligned to your product goals, constraints, and business timeline.
+                Get a practical delivery plan aligned to your business goals, budget, and launch timeline.
               </p>
               <Button className="mt-8 group" size="lg" variant="hero" onClick={openBookDemoPopup}>
                 Book a Discovery Call

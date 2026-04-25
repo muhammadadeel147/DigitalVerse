@@ -50,7 +50,7 @@ export const CaseStudiesSection = () => {
             Small Team. Big Outcomes.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Selected delivery snapshots from software agency engagements.
+            Selected delivery snapshots from software house and product engineering engagements.
           </p>
         </motion.div>
 

@@ -98,10 +98,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Seo
-        title="About NexMindSystems | Enterprise Product Engineering Partner"
-        description="Learn about NexMindSystems: our mission, values, and team behind resilient enterprise software delivery and digital transformation."
+        title="About NexMindSystems | Software House & Product Engineering Team"
+        description="Learn how NexMindSystems helps startups and growing businesses with custom software development, AI automation, cloud engineering, and product design."
         path="/about"
-        keywords="NexMindSystems, about NexMindSystems, enterprise software company, product engineering partner, digital transformation"
+        keywords="about NexMindSystems, software house, product engineering team, custom software development company, AI automation agency, cloud engineering,nexmindsystems"
         schema={faqSchema}
       />
       <Navigation />
@@ -126,13 +126,13 @@ const About = () => {
               </span>
 
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-balance">
-                We Build High-Trust Digital Products for
+                We Build High-Trust Software for
                 <span className="gradient-text"> Ambitious Teams</span>
               </h1>
 
               <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                NexMindSystems helps organizations move from legacy bottlenecks to resilient, intelligent platforms.
-                We blend strategy, design, and engineering to deliver products that scale with confidence.
+                NexMindSystems helps organizations move from legacy bottlenecks to resilient software products. We
+                blend strategy, design, and engineering to deliver products that support sales, operations, and growth.
               </p>
             </motion.div>
 
@@ -157,24 +157,21 @@ const About = () => {
             <div className="glass-card p-8 md:p-10 rounded-3xl h-full flex flex-col justify-center">
               <span className="text-primary text-sm font-semibold uppercase tracking-wider">About NexMindSystems</span>
               <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-                Building the Infrastructure for{" "}
-                <span className="gradient-text">Next-Gen Applications</span>
+                Building Software That Supports{" "}
+                <span className="gradient-text">Real Business Growth</span>
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  We empower developers and enterprises to build scalable, intelligent applications with our
-                  cutting-edge platform. From AI-powered analytics to cloud-native architecture, we provide the tools
-                  that modern teams need.
+                  We design and build custom software for founders, startups, and growth teams that need more than a
+                  template. Our work covers MVPs, SaaS products, internal tools, automation, and cloud migration.
                 </p>
                 <p>
-                  Our platform handles millions of requests daily, serving organizations that demand reliability,
-                  performance, and innovation. We're not just building software, we're shaping how the world builds
-                  software.
+                  Every project is shaped around clarity, reliability, and long-term maintainability. That means a
+                  cleaner handoff, easier scaling, and a product your team can keep improving after launch.
                 </p>
                 <p>
-                  Every line of code, every API endpoint, and every feature is crafted with obsessive attention to
-                  developer experience and enterprise-grade security. Join thousands of teams who trust NexMindSystems
-                  to power their mission-critical applications.
+                  Every line of code, every API endpoint, and every feature is built with obsessive attention to
+                  performance, security, and user experience.
                 </p>
               </div>
             </div>
@@ -186,8 +183,8 @@ const About = () => {
                 </div>
                 <h3 className="mt-4 text-xl md:text-2xl font-bold">Our Mission</h3>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Enable enterprises to launch and evolve digital products faster, without sacrificing quality,
-                  governance, or customer trust.
+                  Help businesses launch and evolve software faster without sacrificing quality, governance, or
+                  customer trust.
                 </p>
               </div>
 
@@ -197,8 +194,8 @@ const About = () => {
                 </div>
                 <h3 className="mt-4 text-xl md:text-2xl font-bold">Our Vision</h3>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Become the most trusted product engineering partner for organizations building systems that improve
-                  how people work, move, heal, and connect.
+                  Become the most trusted product engineering partner for organizations building software that
+                  improves how people work and buy.
                 </p>
               </div>
 
