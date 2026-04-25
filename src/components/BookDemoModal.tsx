@@ -17,6 +17,8 @@ import {
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { toast } from "./ui/sonner";
+import { submitLeadForm } from "@/lib/leadForms";
 
 interface BookDemoModalProps {
   isOpen: boolean;
@@ -39,25 +41,38 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset after showing success message
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        phone: "",
-        message: "",
-        preferredDate: "",
+    try {
+      await submitLeadForm("book_demo", {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        phone: formData.phone.trim(),
+        preferredDate: formData.preferredDate.trim(),
+        message: formData.message.trim(),
+        website: "",
       });
-      onClose();
-    }, 2000);
+
+      setIsSuccess(true);
+
+      // Reset after showing success message
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          message: "",
+          preferredDate: "",
+        });
+        onClose();
+      }, 2000);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unable to submit your demo request right now.";
+      toast.error(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -267,7 +282,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                           <div className="space-y-2">
                             <label className="flex items-center gap-2 text-sm font-medium text-foreground">
                               <Building2 className="h-4 w-4 text-primary" />
-                              Company Name *
+                              Company Name
                             </label>
                             <Input
                               type="text"
@@ -275,7 +290,6 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                               value={formData.company}
                               onChange={handleChange}
                               placeholder="Acme Inc."
-                              required
                               className="h-12 rounded-xl"
                             />
                           </div>

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/sonner";
+import { submitLeadForm } from "@/lib/leadForms";
 
 type ContactForm = {
   fullName: string;
@@ -62,7 +63,7 @@ const Contact = () => {
     setForm((current) => ({ ...current, [key]: value }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!form.fullName.trim() || !form.email.trim() || !form.subject.trim() || !form.message.trim()) {
@@ -72,23 +73,24 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    const mailSubject = encodeURIComponent(`[Website Contact] ${form.subject.trim()}`);
-    const mailBody = encodeURIComponent(
-      [
-        `Name: ${form.fullName.trim()}`,
-        `Email: ${form.email.trim()}`,
-        `Company: ${form.company.trim() || "Not provided"}`,
-        "",
-        "Message:",
-        form.message.trim(),
-      ].join("\n"),
-    );
+    try {
+      const response = await submitLeadForm("contact", {
+        fullName: form.fullName.trim(),
+        email: form.email.trim(),
+        company: form.company.trim(),
+        subject: form.subject.trim(),
+        message: form.message.trim(),
+        website: "",
+      });
 
-    window.location.href = `mailto:hello@nexmindsystems.io?subject=${mailSubject}&body=${mailBody}`;
-
-    toast.success("Your email draft is ready. Please send it from your mail app.");
-    setForm(initialForm);
-    setIsSubmitting(false);
+      toast.success(response.message || "Thanks. Your message has been sent.");
+      setForm(initialForm);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unable to send your message right now.";
+      toast.error(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -213,7 +215,7 @@ const Contact = () => {
                 </div>
 
                 <Button type="submit" variant="hero" size="lg" className="mt-6 w-full sm:w-auto" disabled={isSubmitting}>
-                  {isSubmitting ? "Opening Mail..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </motion.form>
