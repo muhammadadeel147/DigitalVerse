@@ -38,7 +38,7 @@ export const Footer = () => {
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-2 md:justify-end">
+            {/* <div className="flex items-center justify-center gap-2 md:justify-end">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
@@ -51,7 +51,7 @@ export const Footer = () => {
                   <social.icon className="h-3.5 w-3.5" />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
