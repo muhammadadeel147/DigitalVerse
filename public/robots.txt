@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# Disallow redirects and unnecessary pages from being indexed
+Disallow: /api/
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1
+
+# Explicitly declare canonical domain to Google Search Console
+Sitemap: https://www.nexmindsystems.com/sitemap.xml
+
 Sitemap: https://nexmindsystems.com/sitemap.xml

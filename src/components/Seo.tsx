@@ -46,8 +46,23 @@ export const Seo = ({
   useEffect(() => {
     const previousTitle = document.title;
     const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-    const canonicalUrl = `${window.location.origin}${normalizedPath}`;
-    const imageUrl = imagePath.startsWith("http") ? imagePath : `${window.location.origin}${imagePath}`;
+    
+    // Ensure www subdomain and HTTPS for canonical URL
+    let origin = window.location.origin;
+    if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
+      // Keep localhost as-is for development
+    } else {
+      // Enforce www and https
+      const url = new URL(origin);
+      url.protocol = "https:";
+      if (!url.hostname.startsWith("www.")) {
+        url.hostname = `www.${url.hostname}`;
+      }
+      origin = url.origin;
+    }
+    
+    const canonicalUrl = `${origin}${normalizedPath}`;
+    const imageUrl = imagePath.startsWith("http") ? imagePath : `${origin}${imagePath}`;
     const resolvedImageAlt = imageAlt ?? `${siteName} - ${title}`;
 
     const restoreActions: Array<() => void> = [];

@@ -2,6 +2,18 @@
   RewriteEngine On
   RewriteBase /
 
+  # Enforce HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect non-www to www
+  RewriteCond %{HTTP_HOST} !^www\.
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Remove trailing slashes (except for directories)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ https://www.%{HTTP_HOST}/$1 [L,R=301]
+
   # Allow direct execution of the PHP form endpoint.
   RewriteRule ^api/form-handler\.php$ - [L]
 
