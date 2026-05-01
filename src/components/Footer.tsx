@@ -17,8 +17,11 @@ export const Footer = () => {
             <img
               src="/nexmindsystems.png"
               alt="NexMindSystems logo"
+              width={170}
+              height={128}
               className="mx-auto md:mx-0 h-9 md:h-16 w-auto max-w-[170px] object-contain"
               loading="lazy"
+              decoding="async"
             />
             <p className="mx-auto max-w-md text-xs leading-relaxed text-muted-foreground md:mx-0 md:text-sm">
               NexMindSystems is a software house for custom web apps, AI automation, cloud engineering, MVP development, and product design.

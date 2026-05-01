@@ -17,4 +17,30 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    target: "esnext",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          gsap: ["gsap"],
+          framer: ["framer-motion"],
+          ui: ["@radix-ui/react-dialog", "@radix-ui/react-popover"],
+        },
+        chunkFileNames: (chunkInfo) => {
+          const facadeModuleId = chunkInfo.facadeModuleId
+            ? chunkInfo.facadeModuleId.split("/").pop()
+            : "chunk";
+          return "[name]-[hash].js";
+        },
+      },
+    },
+  },
 });

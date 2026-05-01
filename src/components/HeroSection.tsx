@@ -124,6 +124,9 @@ export const HeroSection = () => {
                   <img
                     src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&auto=format&fit=crop&q=80"
                     alt="Enterprise software delivery team dashboard"
+                    width={1600}
+                    height={1066}
+                    loading="lazy"
                     className="w-full h-[18rem] sm:h-[22rem] md:h-[24rem] object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />

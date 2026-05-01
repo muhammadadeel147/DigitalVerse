@@ -143,8 +143,11 @@ export const Navigation = () => {
           <img
             src="/nexmindsystems.png"
             alt="NexMindSystems logo"
+            width={240}
+            height={180}
             className="h-24 md:h-36 w-auto max-w-[240px] object-contain"
             loading="eager"
+            decoding="async"
           />
         </a>
 
