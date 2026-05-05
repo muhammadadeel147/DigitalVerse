@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup, useScroll, useMotionValueEvent } from "framer-motion";
 import gsap from "gsap";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link, NavLink as RouterNavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 import { BookDemoModal } from "./BookDemoModal";
 
@@ -60,23 +60,27 @@ export const Navigation = () => {
   });
 
   useEffect(() => {
-    // Stagger nav links on load
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".nav-link",
-        { opacity: 0, y: -10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: "power2.out",
-          delay: 0.3,
-        }
-      );
-    }, navRef);
+    // Defer GSAP animation to after page is interactive
+    const timer = requestIdleCallback(() => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          ".nav-link",
+          { opacity: 0, y: -10 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.06,
+            ease: "power2.out",
+            delay: 0.3,
+          }
+        );
+      }, navRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    });
+
+    return () => cancelIdleCallback(timer);
   }, []);
 
   useEffect(() => {
@@ -139,7 +143,7 @@ export const Navigation = () => {
       }`}
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
-        <a href="/" className="group flex items-center">
+        <Link to="/" className="group flex items-center">
           <img
             src="/nexmindsystems.png"
             alt="NexMindSystems logo"
@@ -149,37 +153,41 @@ export const Navigation = () => {
             loading="eager"
             decoding="async"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
           <LayoutGroup id="desktop-nav-tabs">
             {navLinks.map((link, index) => (
-              <a
+              <RouterNavLink
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 aria-current={isLinkActive(link.href) ? "page" : undefined}
-                className={`nav-link relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 group ${
-                  isLinkActive(link.href)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary hover:bg-secondary/70"
-                }`}
+                className={({ isActive }) =>
+                  `nav-link relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 group ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary hover:bg-secondary/70"
+                  }`
+                }
                 style={{ opacity: 0 }}
               >
-                {isLinkActive(link.href) ? (
-                  <motion.span
-                    layoutId="active-nav-pill"
-                    className="absolute inset-0 rounded-lg bg-secondary/70"
-                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
-                  />
-                ) : null}
-                <span className="relative z-10">{link.name}</span>
-                <span
-                  className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary/80 transition-transform duration-300 origin-left rounded-full ${
-                    isLinkActive(link.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </a>
+                {({ isActive }) => (
+                  <>
+                    {isActive ? (
+                      <motion.span
+                        layoutId="active-nav-pill"
+                        className="absolute inset-0 rounded-lg bg-secondary/70"
+                        transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                      />
+                    ) : null}
+                    <span className="relative z-10">{link.name}</span>
+                    <span
+                      className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary/80 transition-transform duration-300 origin-left rounded-full ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </>
+                )}
+              </RouterNavLink>
             ))}
           </LayoutGroup>
         </div>
@@ -239,22 +247,25 @@ export const Navigation = () => {
             <div className="container-custom py-6 px-4">
               <nav className="flex flex-col gap-1 mb-6">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <motion.div
                     key={link.name}
-                    href={link.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    aria-current={isLinkActive(link.href) ? "page" : undefined}
-                    className={`transition-colors py-3 px-4 rounded-xl text-base font-medium ${
-                      isLinkActive(link.href)
-                        ? "text-primary bg-muted/60"
-                        : "text-foreground hover:text-primary hover:bg-muted/50"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link.name}
-                  </motion.a>
+                    <RouterNavLink
+                      to={link.href}
+                      aria-current={isLinkActive(link.href) ? "page" : undefined}
+                      className={`transition-colors py-3 px-4 rounded-xl text-base font-medium ${
+                        isLinkActive(link.href)
+                          ? "text-primary bg-muted/60"
+                          : "text-foreground hover:text-primary hover:bg-muted/50"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </RouterNavLink>
+                  </motion.div>
                 ))}
               </nav>
               
